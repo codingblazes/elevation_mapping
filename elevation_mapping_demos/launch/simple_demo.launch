@@ -4,7 +4,10 @@
   <node pkg="elevation_mapping" type="elevation_mapping" name="elevation_mapping" output="screen">
     <rosparam command="load" file="$(find elevation_mapping_demos)/config/robots/simple_demo_robot.yaml" />
     <rosparam command="load" file="$(find elevation_mapping_demos)/config/elevation_maps/simple_demo_map.yaml" />
-    <rosparam command="load" file="$(find elevation_mapping)/config/sensor_processors/kinect_nguyen_et_al.yaml" />
+    <rosparam command="load" file="$(find elevation_mapping)/config/sensor_processors/aslam.yaml" />
+    <param name="fused_map_publishing_rate" value="1" />
+    <param name="time_tolerance" value="1" />
+    <param name="sensor_frame_id" value="cam_left" />
   </node>
 
   <!-- Launch visualizations for the resulting elevation map -->

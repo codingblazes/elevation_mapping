@@ -1,0 +1,10 @@
+# Precision Landing of a Cargo Drone, RPG
+
+sensor_processor/type: stereo
+sensor_processor/p_1:   0
+sensor_processor/p_2:   0
+sensor_processor/p_3:   0
+sensor_processor/p_4:   0
+sensor_processor/p_5:   0
+sensor_processor/lateral_factor: 0.000013
+sensor_processor/depth_to_disparity_factor: 17.3

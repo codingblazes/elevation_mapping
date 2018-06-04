@@ -83,10 +83,11 @@ bool StereoSensorProcessor::computeVariances(
     float measurementDistance = pointVector.norm();
 
     // Compute sensor covariance matrix (Sigma_S) with sensor model.
-    float varianceNormal = pow(sensorParameters_.at("depth_to_disparity_factor") / pow(disparity, 2), 2)
-        * ((sensorParameters_.at("p_5") * disparity + sensorParameters_.at("p_2"))
-            * sqrt(pow(sensorParameters_.at("p_3") * disparity + sensorParameters_.at("p_4") - getJ(i), 2)
-                    + pow(240 - getI(i), 2)) + sensorParameters_.at("p_1"));
+//    float varianceNormal = pow(sensorParameters_.at("depth_to_disparity_factor") / pow(disparity, 2), 2)
+//        * ((sensorParameters_.at("p_5") * disparity + sensorParameters_.at("p_2"))
+//            * sqrt(pow(sensorParameters_.at("p_3") * disparity + sensorParameters_.at("p_4") - getJ(i), 2)
+//                    + pow(240 - getI(i), 2)) + sensorParameters_.at("p_1"));
+    float varianceNormal = pow(sensorParameters_.at("depth_to_disparity_factor") / pow(disparity, 2) * 0.05, 2); // f*b/d^2 * delta(d)
     float varianceLateral = pow(sensorParameters_.at("lateral_factor") * measurementDistance, 2);
     Eigen::Matrix3f sensorVariance = Eigen::Matrix3f::Zero();
     sensorVariance.diagonal() << varianceLateral, varianceLateral, varianceNormal;
@@ -100,7 +101,7 @@ bool StereoSensorProcessor::computeVariances(
     heightVariance += sensorJacobian * sensorVariance * sensorJacobian.transpose();
 
     // Copy to list.
-    variances(i) = heightVariance;
+    variances(i) = varianceNormal;
   }
 
   return true;
