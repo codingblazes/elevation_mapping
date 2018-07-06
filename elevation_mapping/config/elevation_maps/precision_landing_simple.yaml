@@ -9,4 +9,4 @@ mahalanobis_distance_threshold: 100000.0
 multi_height_noise: 0.0000009
 enable_visibility_cleanup: True
 scanning_duration: 0.15
-
+sensor_cutoff_max_depth: 10 
