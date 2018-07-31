@@ -1,9 +1,9 @@
-point_cloud_topic: "/ground_truth"
-map_frame_id: "map"
-robot_base_frame_id: "map"
-robot_pose_with_covariance_topic: "/ground_truth_pose"
+point_cloud_topic: "/head_mount_kinect/depth/points"
+map_frame_id: "world"
+robot_base_frame_id: "hummingbird/base_link"
+robot_pose_with_covariance_topic: "/hummingbird/ground_truth/pose_with_covariance"
 robot_pose_cache_size: 500
-track_point_frame_id: "map"
+track_point_frame_id: "hummingbird/base_link"
 track_point_x: 0.0
 track_point_y: 0.0
 track_point_z: 0.0

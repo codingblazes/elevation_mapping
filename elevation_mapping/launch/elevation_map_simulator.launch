@@ -1,5 +1,6 @@
 <launch>
-
+<arg name="quad_name" default="hummingbird"/>
+<group ns="$(arg quad_name)" >
   <!-- Elevation mapping node -->
   <node pkg="elevation_mapping" type="elevation_mapping" name="elevation_mapping" output="screen">
     <rosparam command="load" file="$(find elevation_mapping)/config/robots/rpg_test_quad.yaml" />
@@ -10,4 +11,8 @@
     <param name="sensor_frame_id" value="hummingbird/base_link" />
 
   </node>
+ </group>
+
 </launch>
+
+
